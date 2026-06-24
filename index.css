@@ -1,0 +1,209 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(fonts/SpaceGrotesk-Regular.woff2) format("woff2");
+}
+@font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(fonts/SpaceGrotesk-SemiBold.woff2) format("woff2");
+}
+@font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(fonts/SpaceGrotesk-Bold.woff2) format("woff2");
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 100dvh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+    background-color: #ffffff;
+    color: #101010;
+    transition: 0.3s ease;
+}
+body.dark_theme {
+    background-color: #101010;
+    color: #f9f9f9;
+    transition: 0.3s ease;
+}
+body.dark_theme .nav {
+    background-color: #191919;
+}
+
+ul {
+    list-style: none;
+}
+a {
+    color: inherit;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: transform 0.2s ease;
+}
+a:active {
+    color: #aeaeae;
+}
+a:hover {
+    transform: translateY(-3px);
+}
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1.5rem 1rem;
+
+
+    position: fixed;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+
+    background: #f9f9f9;
+
+    width: 100%;
+
+    animation: slideIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.nav_list {
+    display: flex;
+    gap: 2.5rem;
+}
+.logo {
+    margin-right: auto;
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+    font-weight: 700;
+}
+.links {
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.2rem);
+}
+.dark_mode {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+    margin-left: auto;
+    background-color: #e7e7e7;
+    color: #101010;
+    padding: 0.5rem;
+    border-radius: 12px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+}
+.dark_mode:active {
+    background-color: #959595;
+}
+.dark_mode:hover {
+    transform: translateY(-3px);
+}
+#hero {
+    min-height: 100svh;
+}
+.hero_header, .paragraph {
+    margin-inline: clamp(1rem, 5vw + 1rem, 5rem);
+}
+.header {
+    opacity: 0;
+    margin-top: clamp(1rem, 20vh + 5rem, 20rem);
+    user-select: none;
+    
+    letter-spacing: -0.5rem;
+    animation: fadeIn forwards 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    font-size: clamp(1rem, 10vw + 5rem, 10rem);
+}
+.undertext {
+    animation: fadeIn forwards 2.4s cubic-bezier(0.175, 0.92, 0.165, 1);
+}
+.paragraph {
+    animation: fadeIn forwards 1.5s cubic-bezier(0.585, 0.115, 0.15, 0.86);
+    opacity: 0;
+    margin-top: clamp(1rem, 3vh + 0.5rem, 2rem);
+}
+.sections {
+    height: 100dvh;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #f9f9f9;
+    backdrop-filter: blur(12px);
+    width: 100%;
+
+    padding: 1.5rem 2rem;
+}
+.contacts_container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer_list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 3rem;
+}
+.contact, .mail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body.dark_theme .footer {
+    background-color: #191919;
+    color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    body {
+        text-align: center;
+    }
+    .hero_header, .paragraph {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@keyframes fadeIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
